@@ -5,7 +5,8 @@
   flex-direction: column;
   justify-content: space-evenly;
   padding: 2rem;
-  margin-top: 2rem;
+  position:static;
+  margin-top: 100px;
   margin: auto;
   margin-right:1vw;
   overflow: hidden;
