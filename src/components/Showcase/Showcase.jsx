@@ -27,6 +27,7 @@ export default function Showcase({ title = "Recommended", type = "popular" }) {
   //   price: 9.99,
   // };
 
+  //fetch movies
   const [movies, setMovies] = useState(null);
   let URL = "";
   if (type === "popular") {
@@ -36,24 +37,26 @@ export default function Showcase({ title = "Recommended", type = "popular" }) {
     URL =
       "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1&api_key=ae70c342303f7cab77e2bb86d2ba6ad0";
   } else if (type === "discover") {
-    URL = `https://api.themoviedb.org/3/movie/popular?language=en-US&page=5&api_key=ae70c342303f7cab77e2bb86d2ba6ad0`;
+    URL = `https://api.themoviedb.org/3/trending/movie/day?language=en-US&api_key=ae70c342303f7cab77e2bb86d2ba6ad0`;
   }
   useEffect(() => {
     const getMovies = async () => {
       const movieData = await fetch(URL);
       const movieJson = await movieData.json();
-      console.log(movieJson.results);
       setMovies(movieJson.results);
     };
     getMovies();
   });
 
+  //Slider settings
   const settings = {
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 3,
     slidesToScroll: 2,
     arrows: false,
   };
+
+  //controls settings
   let sliderRef = useRef(null);
   const next = () => {
     sliderRef.slickNext();
@@ -61,6 +64,7 @@ export default function Showcase({ title = "Recommended", type = "popular" }) {
   const previous = () => {
     sliderRef.slickPrev();
   };
+
   return (
     <div className={styles.recommended}>
       <div className={styles.header}>

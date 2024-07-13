@@ -4,19 +4,19 @@ const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
 
 export const getMovies = async (type) => {
   const response = await fetch(
-    `${BASE_URL}/movie/${type}?api_key=${API_KEY}&language=en-US&page=1`
+    `${BASE_URL}/movie/${type}?language=en-US&page=1&api_key=${API_KEY}`
   );
   const data = await response.json();
   return data.results;
 };
 export const getMovieDetails = async (id) => {
-    const response = await fetch(
-        `${BASE_URL}/movie/${id}?api_key=${API_KEY}&language=en-US`
-    );
-    const data = await response.json();
-    return data;
-}
+  const response = await fetch(
+    `${BASE_URL}/movie/${id}?api_key=${API_KEY}&language=en-US`
+  );
+  const data = await response.json();
+  return data;
+};
 
 export const getMoviePoster = (path) => {
   return `${IMAGE_URL}${path}`;
-}
+};
