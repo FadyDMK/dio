@@ -1,7 +1,6 @@
 .home {
   width: 70%;
   background-color: #30344f;
-  border-radius: 5%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;

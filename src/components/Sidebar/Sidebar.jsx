@@ -20,14 +20,14 @@ export default function Sidebar() {
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
-        <div className={styles.logoContainer}>
+        <Link to="/" className={styles.logoContainer}>
           <Img
             src={logo}
             loader={logoLoader}
             unloader={logoError}
             className={styles.logo}
           />
-        </div>
+        </Link>
         <div className={styles.menu}>
           <Link to="/" className={styles.menuItem}>
             <FontAwesomeIcon icon={faHouse} />
