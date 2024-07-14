@@ -2,9 +2,12 @@ import styles from "./Shop.module.css";
 import { useEffect, useState } from "react";
 import MovieCard from "../MovieCard/MovieCard";
 
+
 export default function Shop() {
   const [movies, setMovies] = useState(null);
   const [page,setPage]=useState(2);
+
+ 
 
   const URL =
     "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=ae70c342303f7cab77e2bb86d2ba6ad0";

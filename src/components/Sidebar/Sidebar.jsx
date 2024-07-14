@@ -10,13 +10,17 @@ import {
   faBasketShopping,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link, Outlet } from "react-router-dom";
+import {useState} from 'react';
 
 export default function Sidebar() {
+  const [cart,setCart] = useState([]);
+
   //placeHolder for the image while loading
   const logoLoader = () => <div>Loading...</div>;
 
   //error message if image fails to load
   const logoError = () => <div>Error loading image</div>;
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
@@ -39,9 +43,9 @@ export default function Sidebar() {
             Shop
           </Link>
 
-          <Link to="*" className={styles.menuItem}>
+          <Link to="cart" className={styles.menuItem}>
             <FontAwesomeIcon icon={faBasketShopping} />
-            Cart
+            Cart <span className={styles.cartNum}>{cart.length}</span>
           </Link>
         </div>
         <div className={styles.info}>
@@ -60,7 +64,7 @@ export default function Sidebar() {
           </div>
         </div>
       </div>
-      <Outlet />
+      <Outlet context={{cart,setCart}}/>
     </div>
   );
 }

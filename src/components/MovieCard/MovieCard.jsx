@@ -5,16 +5,23 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { getMoviePoster } from "../../services/api/api";
+import { useOutletContext } from "react-router-dom";
 
 MovieCard.propTypes = {
   movie: propTypes.shape({
+    
     poster_path: propTypes.string.isRequired,
     original_title: propTypes.string.isRequired,
     release_date: propTypes.string.isRequired,
+    id: propTypes.number.isRequired,
   }).isRequired,
 };
 
 export default function MovieCard({ movie }) {
+
+  const context = useOutletContext();
+
+
   //placeHolder for the image while loading
   const [added, setAdded] = useState(false);
   const imgLoader = () => (
@@ -35,6 +42,12 @@ export default function MovieCard({ movie }) {
 
   function handleClick() {
     setAdded(!added);
+    if(!added){
+    context.setCart((prevCart) => [...prevCart, movie.id]);
+    }else{
+      context.setCart(context.cart.filter((item)=>item!==movie.id));
+    }
+    console.log(context.cart);
   }
 
   return (

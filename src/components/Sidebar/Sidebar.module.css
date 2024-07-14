@@ -40,11 +40,20 @@
     gap: 1rem;
     cursor: pointer;
     padding: 1rem;
+    text-decoration: none;
 }
 .menuItem:hover{
     
     background-color: #00E0DB;
     border-radius: 30px;
+}
+.cartNum{
+    background-color: #00E0DB;
+    color: #003233;
+    border-radius: 2rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+
 }
 .info{
     text-align: center;
