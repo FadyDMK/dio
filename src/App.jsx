@@ -3,6 +3,7 @@ import Home from "./components/Home/Home.jsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Shop from "./components/Shop/Shop.jsx";
 import Cart from "./components/Cart/Cart.jsx";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 function App() {
   return (
