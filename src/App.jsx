@@ -5,7 +5,6 @@ import Shop from "./components/Shop/Shop.jsx";
 import Cart from "./components/Cart/Cart.jsx";
 
 function App() {
-  console.log(import.meta.env.VITE_API_KEY);
   return (
     <>
       
