@@ -8,6 +8,7 @@
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 2px 2px 5px 0px rgba(0, 64, 128, 0.1);
+  margin: 5%;
 }
 
 Img {

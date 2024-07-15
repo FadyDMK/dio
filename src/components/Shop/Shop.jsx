@@ -20,13 +20,12 @@ export default function Shop() {
       setMovies(movieJson.results);
     };
     getMovies();
-  }, []); // Provide an empty dependency array here
+  }, []); 
 
 
 
 
   const handleMore = async () => {
-    console.log(page);
     let nextPageURL = `https://api.themoviedb.org/3/movie/popular?language=en-US&page=${page}&api_key=ae70c342303f7cab77e2bb86d2ba6ad0`;
     const movieData = await fetch(nextPageURL);
     const movieJson = await movieData.json();

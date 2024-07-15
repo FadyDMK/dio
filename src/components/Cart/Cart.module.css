@@ -3,7 +3,21 @@
   gap: 5rem;
   padding: 3rem;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   background-color: #003233;
+  
 }
+.item{
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  border: solid 2px black;
 
+}
+.img{
+  width: 30%;
+  height: 100%;
+}

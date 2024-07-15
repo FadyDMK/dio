@@ -23,7 +23,7 @@ export default function MovieCard({ movie }) {
 
 
   //placeHolder for the image while loading
-  const [added, setAdded] = useState(false);
+  const [added, setAdded] = useState(context.cart.includes(movie.id));
   const imgLoader = () => (
     <div className={styles.ldsRoller}>
       <div></div>
@@ -41,20 +41,19 @@ export default function MovieCard({ movie }) {
   const imgError = () => <Img src="https://via.placeholder.com/1920x1080" />;
 
   function handleClick() {
-    setAdded(!added);
     if(!added){
-    context.setCart((prevCart) => [...prevCart, movie.id]);
+      context.setCart((prevCart) => [...prevCart, movie.id]);
     }else{
       context.setCart(context.cart.filter((item)=>item!==movie.id));
     }
-    console.log(context.cart);
+    setAdded(!added);
   }
-
+  
   return (
     <div className={styles.card}>
       <div
         className={added ? styles.cartClicked : styles.cartWrapper}
-        onClick={() => handleClick()}
+        onClick={handleClick}
       >
         <FontAwesomeIcon icon={faShoppingCart} className={styles.cart} />
       </div>
