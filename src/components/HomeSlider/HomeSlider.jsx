@@ -8,7 +8,7 @@ import { getMoviePoster } from "../../services/api/api";
 
 export default function HomeSlider() {
   const URL =
-    "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=ae70c342303f7cab77e2bb86d2ba6ad0";
+    `https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=${import.meta.env.VITE_API_KEY}`;
   const [movies, setMovies] = useState(null);
 
   useEffect(() => {

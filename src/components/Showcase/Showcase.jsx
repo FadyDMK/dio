@@ -32,12 +32,12 @@ export default function Showcase({ title = "Recommended", type = "popular" }) {
   let URL = "";
   if (type === "popular") {
     URL =
-      "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=ae70c342303f7cab77e2bb86d2ba6ad0";
+      `https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=${import.meta.env.VITE_API_KEY}`;
   } else if (type === "top_rated") {
     URL =
-      "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1&api_key=ae70c342303f7cab77e2bb86d2ba6ad0";
+      `https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1&api_key=${import.meta.env.VITE_API_KEY}`;
   } else if (type === "discover") {
-    URL = `https://api.themoviedb.org/3/trending/movie/day?language=en-US&api_key=ae70c342303f7cab77e2bb86d2ba6ad0`;
+    URL = `https://api.themoviedb.org/3/trending/movie/day?language=en-US&api_key=${import.meta.env.VITE_API_KEY}`;
   }
   useEffect(() => {
     const getMovies = async () => {

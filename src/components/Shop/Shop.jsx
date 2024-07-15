@@ -10,7 +10,7 @@ export default function Shop() {
  
 
   const URL =
-    "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=ae70c342303f7cab77e2bb86d2ba6ad0";
+    `https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=${import.meta.env.VITE_API_KEY}`;
 
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function Shop() {
 
 
   const handleMore = async () => {
-    let nextPageURL = `https://api.themoviedb.org/3/movie/popular?language=en-US&page=${page}&api_key=ae70c342303f7cab77e2bb86d2ba6ad0`;
+    let nextPageURL = `https://api.themoviedb.org/3/movie/popular?language=en-US&page=${page}&api_key=${import.meta.env.VITE_API_KEY}`;
     const movieData = await fetch(nextPageURL);
     const movieJson = await movieData.json();
     setMovies((prevMovies) => [...prevMovies, ...movieJson.results]);
