@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { Img } from "react-image";
 import { useState, useEffect } from "react";
 import { getMoviePoster } from "../../services/api/api";
+import { InfinitySpin } from "react-loader-spinner";
 
 export default function HomeSlider() {
   const URL =
@@ -33,19 +34,7 @@ export default function HomeSlider() {
     fade: true,
   };
 
-  //placeHolder for the image while loading
-  const imgLoader = () => (
-    <div className={styles.ldsRoller}>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  );
+ 
 
   //error message if image fails to load
   const imgError = () => <Img src="https://via.placeholder.com/1920x1080" />;
@@ -57,7 +46,12 @@ export default function HomeSlider() {
           <div className={styles.item} key={movie.id}>
             <Img
               src={getMoviePoster(movie.backdrop_path)}
-              loader={imgLoader}
+              loader={<InfinitySpin
+                visible={true}
+                width="100%"
+                color="#00CCC9"
+                ariaLabel="infinity-spin-loading"
+                />}
               unloader={imgError}
               className={styles.img}
             />
