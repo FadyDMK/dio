@@ -51,7 +51,7 @@ export default function Showcase({ title = "Recommended", type = "popular" }) {
   //Slider settings
   const settings = {
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 2,
     arrows: false,
   };
@@ -95,7 +95,7 @@ export default function Showcase({ title = "Recommended", type = "popular" }) {
               className={styles.slider}
             >
               {movies.map((movie) => (
-                <MovieCard movie={movie} key={movie.id} />
+                <MovieCard movie={movie} key={movie.id} className={styles.card}/>
               ))}
             </Slider>
           )}
